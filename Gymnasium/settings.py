@@ -29,9 +29,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'qualitygymapp.herokuapp.com']
 
 # After succesful login go to path:
-LOGIN_REDIRECT_URL = '/'
+
 # After Logout
-LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 

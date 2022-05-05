@@ -9,6 +9,9 @@ from .models import Wallpaper, WallpaperForm
 from django.conf import settings
 from notifications.config import get_notification_count, run_notifier
 
+def home(request):
+    return HttpResponse("You Have Not Been Registered")
+
 def homepage(request):
     return render(request, 'homepage.html')
 
