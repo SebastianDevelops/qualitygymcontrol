@@ -20,20 +20,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k6_^w5l$q(85$r_vc*ou9q!aa8hh_aczk425&iw6w4qx$=cg=l'
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-DEBUG = 'RENDER' not in os.environ
-
 ALLOWED_HOSTS = ['127.0.0.1']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 # After succesful login go to path:
-
+LOGIN_REDIRECT_URL = "/"
 # After Logout
-
+LOGOUT_REDIRECT_URL = "/"
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
-    'members',
-    'notifications',
-    'reports',
-    'payments',
+    'accounts.apps.AccountsConfig',
+    'members.apps.MembersConfig',
+    'notifications.apps.NotificationsConfig',
+    'reports.apps.ReportsConfig',
+    'payments.apps.PaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -85,17 +82,19 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-'''DATABASES = {
+'''
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
+'''
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://qualitygymcontrol_user:JBwvAzrTmK5sRrgph9WdEeOSY1w3hT3F@dpg-c9qo0cj0tnund8fje5k0-a/qualitygymcontrol',
+        default='postgres://qualitygymcontrol_user:JBwvAzrTmK5sRrgph9WdEeOSY1w3hT3F@dpg-c9qo0cj0tnund8fje5k0-a.oregon-postgres.render.com/qualitygymcontrol',
         conn_max_age=600
     )
 }
@@ -156,3 +155,4 @@ WALLPAPER_URL = os.path.normpath(MEDIA_URL+'/wallpaper/')
 PHOTOS_FILES = os.path.normpath(MEDIA_ROOT+'/photos')
 PHOTOS_URL = os.path.normpath(MEDIA_URL+'/photos/')
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

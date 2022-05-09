@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from . import views
 from django.contrib.auth.decorators import login_required
 
@@ -24,4 +26,4 @@ urlpatterns = [
     path('delete/<int:id>/', login_required(views.delete_member), name='delete_member'),
     path('update/<int:id>/', login_required(views.update_member), name='update_member'),
     path('', login_required(views.members), name='members'),
-]
+] + static (settings.PHOTOS_URL, document_root=settings.PHOTOS_FILES)

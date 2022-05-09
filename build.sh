@@ -1,6 +1,5 @@
-set -o errexit
+#!/usr/bin/env basg
+pip install -r requirements.txt
 
-pipenv install
-
-python manage.py collectstatic --no-input
+python manage.py collectstatic
 python manage.py migrate

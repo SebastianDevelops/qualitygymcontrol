@@ -82,6 +82,13 @@ class Member(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+    
+    @property
+    def imageURL(self):
+        if self.photo:
+            return self.photo.url
+        else:
+            return  None
 
 class AddMemberForm(ModelForm):
     def __init__(self, *args, **kwargs):
