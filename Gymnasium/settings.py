@@ -94,7 +94,7 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://qualitygymcontrol_user:JBwvAzrTmK5sRrgph9WdEeOSY1w3hT3F@dpg-c9qo0cj0tnund8fje5k0-a.oregon-postgres.render.com/qualitygymcontrol',
+        default='postgres://qualitygymcontrol_user:JBwvAzrTmK5sRrgph9WdEeOSY1w3hT3F@dpg-c9qo0cj0tnund8fje5k0-a/qualitygymcontrol',
         conn_max_age=600
     )
 }
