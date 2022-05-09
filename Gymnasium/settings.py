@@ -82,13 +82,19 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-'''
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'qualitygymcontrol_co2j',
+        'USER': 'qualitygymcontrol_co2j_user',
+        'PASSWORD': 'RqMH9yjxbYMWBi9XoFiIpjBZ3kGo6wDg',
+        'HOST': 'dpg-c9sgurv5f99c0hslute0-a',
+        'PORT': '5432',
+        
     }
 }
+
 '''
 import dj_database_url
 DATABASES = {
@@ -98,7 +104,7 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
