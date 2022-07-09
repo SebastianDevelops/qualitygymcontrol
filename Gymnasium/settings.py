@@ -23,16 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1']
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-=======
 DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'qualtitygymcontrol.herokuapp.com']
->>>>>>> f37a03b3a8b1b1967c283b853ac1c889b3191a13
 # After succesful login go to path:
 LOGIN_REDIRECT_URL = "/"
 # After Logout
