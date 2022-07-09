@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from accounts.views import ServiceWorkerView
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -25,6 +26,11 @@ urlpatterns = [
     path('members/', include('members.urls')),
     path('notifications/', include('notifications.urls')),
     path('reports/', include('reports.urls')),
+    path(
+        'sw.js',
+        ServiceWorkerView.as_view(),
+        name=ServiceWorkerView.name,
+    ),
 ]
 
 # for handling profile photos

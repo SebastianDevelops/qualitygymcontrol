@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -85,26 +86,23 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'qualitygymcontrol_co2j',
-        'USER': 'qualitygymcontrol_co2j_user',
-        'PASSWORD': 'RqMH9yjxbYMWBi9XoFiIpjBZ3kGo6wDg',
-        'HOST': 'dpg-c9sgurv5f99c0hslute0-a',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6da7nuvmph2j1',
+        'USER': 'ckczptdbiwucnx',
+        'PASSWORD': '29b465267fb2375170b9fe1eff5b032736ed27aa2c74c66592bd4eb52491e247',
+        'HOST': 'ec2-44-198-82-71.compute-1.amazonaws.com',
         'PORT': '5432',
         
     }
 }
 
-'''
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://qualitygymcontrol_user:JBwvAzrTmK5sRrgph9WdEeOSY1w3hT3F@dpg-c9qo0cj0tnund8fje5k0-a/qualitygymcontrol',
-        conn_max_age=600
-    )
-}
-'''
+'''DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    }
+}'''
+
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -142,9 +140,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),

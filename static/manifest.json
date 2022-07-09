@@ -1,0 +1,23 @@
+{
+    "name": "Quality Gym Control",
+    "short_name": "QGC",
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#FFF",
+    "theme_color": "#493174",
+    "description": "This is a gym management software",
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+    "icons": [{
+        "src": "/static/images/icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }, {
+        "src": "/static/images/icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }]
+}

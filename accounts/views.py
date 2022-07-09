@@ -3,14 +3,16 @@ from django.http import HttpResponse
 import datetime
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+from django.conf.urls.static import static
+from django.urls import reverse
+from django.views.generic import TemplateView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.files.storage import FileSystemStorage
 from .models import Wallpaper, WallpaperForm
 from django.conf import settings
 from notifications.config import get_notification_count, run_notifier
 
-def home(request):
-    return HttpResponse("You Have Not Been Registered")
+from Gymnasium import version
 
 def homepage(request):
     return render(request, 'homepage.html')
@@ -58,3 +60,17 @@ def change_password(request):
         'form': form,
         'subs_end_today_count': get_notification_count()
     })
+    
+class ServiceWorkerView(TemplateView):
+    template_name = 'sw.js'
+    content_type = 'application/javascript'
+    name = 'sw.js'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'version': version,
+            'icon_url': static('images/icon.png'),
+            'manifest_url': static('manifest.json'),
+            'style_url': static('css/style.css'),
+            'home_url': reverse('homepage_after_login'),
+        }
