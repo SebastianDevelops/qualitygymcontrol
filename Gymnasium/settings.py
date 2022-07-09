@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6da7nuvmph2j1',
-        'USER': 'ckczptdbiwucnx',
-        'PASSWORD': '29b465267fb2375170b9fe1eff5b032736ed27aa2c74c66592bd4eb52491e247',
-        'HOST': 'ec2-44-198-82-71.compute-1.amazonaws.com',
+        'NAME': 'd8dkilnp4j4chc',
+        'USER': 'yhtkrxrnvdiihd',
+        'PASSWORD': '5b2e66a088e0cdfc3d2b91829380be494baa899c061b1527f468f133ce8cec30',
+        'HOST': 'ec2-44-195-162-77.compute-1.amazonaws.com',
         'PORT': '5432',
         
     }
