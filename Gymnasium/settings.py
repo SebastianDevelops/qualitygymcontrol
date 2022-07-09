@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd6da7nuvmph2j1',
         'USER': 'ckczptdbiwucnx',
         'PASSWORD': '29b465267fb2375170b9fe1eff5b032736ed27aa2c74c66592bd4eb52491e247',

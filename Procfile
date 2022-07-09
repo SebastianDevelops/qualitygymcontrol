@@ -1,1 +1,2 @@
-web: gunicorn <project_name>.wsgi --log-file -
+release: pythob manage.py migrate
+web: gunicorn Gymnasium.wsgi --log-file -
