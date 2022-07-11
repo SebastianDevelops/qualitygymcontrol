@@ -172,3 +172,4 @@ class UpdateMemberInfoForm(forms.Form):
     last_name      = forms.CharField(max_length=50)
     photo          = forms.FileField(label='Update Photo', required=False)
     dob            = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker        form-control', 'type': 'date'}),)
+    joined            = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker        form-control', 'type': 'date'}),)

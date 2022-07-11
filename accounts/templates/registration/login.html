@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load tags %}
+<head>
+  <link rel="manifest" href="{% static 'manifest.json' %}">
+  <meta name="theme-color" content="#493174">
+  <link rel="apple-touch-icon" href="{% static 'icons/aurss.192x192.png' %}">
+</head>
 
 {% block title %}
     Login
@@ -30,4 +36,16 @@
         <button class="btn btn-default" type="submit">Login</button>
       </form>
   </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('{% url "sw.js" %}', { scope: '/' }).then(function(reg) {
+            // registration worked
+            console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch(function(error) {
+            // registration failed
+            console.log('Registration failed with ' + error);
+        });
+    }
+</script>
 {% endblock %}

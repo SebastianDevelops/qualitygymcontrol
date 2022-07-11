@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['127.0.0.1', 'qualtitygymcontrol.herokuapp.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 # After succesful login go to path:
 LOGIN_REDIRECT_URL = "/"
 # After Logout
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+'''
 
 DATABASES = {
     'default': {
@@ -92,14 +92,14 @@ DATABASES = {
         'PORT': '5432',
         
     }
-}
+} '''
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
-}'''
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -138,7 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestFilesStorage'
 
 STATIC_URL = '/static/'
 
@@ -161,5 +161,3 @@ PHOTOS_FILES = os.path.normpath(MEDIA_ROOT+'/photos')
 PHOTOS_URL = os.path.normpath(MEDIA_URL+'/photos/')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
