@@ -80,24 +80,16 @@ WSGI_APPLICATION = 'Gymnasium.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-'''
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8dkilnp4j4chc',
-        'USER': 'yhtkrxrnvdiihd',
-        'PASSWORD': '5b2e66a088e0cdfc3d2b91829380be494baa899c061b1527f468f133ce8cec30',
-        'HOST': 'ec2-44-195-162-77.compute-1.amazonaws.com',
+        'NAME': 'dchrsrtvvijlmt',
+        'USER': 'ccgswqohyflizi',
+        'PASSWORD': 'c702b3e929c489b6eb7a0ff02086923fe08c95b273a4f31c316741a6fea40d13',
+        'HOST': 'ec2-3-219-229-143.compute-1.amazonaws.com',
         'PORT': '5432',
         
-    }
-} '''
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
 
